@@ -56,11 +56,22 @@ library(evd)
 
 ::: {style="font-size:80%"}
 - **Joint GEV model for precipitation extremes**  
-  1) *Data:* $y_{i,t} \mid \mu_i, \sigma_i, \xi_i, \Delta_i, x_{i,t} \sim \text{GEV}(\mu_{i,t}, \sigma_i, \xi_i)$ where $\mu_{i,t} = \mu_i \cdot (1 + \Delta_i x_{i,t})$
-  2) *Latent field:* $\boldsymbol\eta_i = \begin{pmatrix} (\psi_1, \tau_1, \phi_1, \gamma_1)^\intercal \\  \vdots \\ (\psi_n, \tau_n, \phi_n, \gamma_n)^\intercal \end{pmatrix}  \sim \mathcal{N}(\boldsymbol{\mu}(\theta), \mathbf{Q}^{-1}(\theta))$ 
+  1) *Data* 
+  $$
+  \begin{gathered}
+  y_{i,t} \mid \mu_i, \sigma_i, \xi_i, \Delta_i, x_{i,t} \sim \text{GEV}(\mu_{i,t}, \sigma_i, \xi_i) \\
+  \mu_{i,t} = \mu_i \cdot (1 + \Delta_i x_{i,t})
+  \end{gathered}
+  $$
+  2) *Latent field* [@johannesson2021]
+  $$
+  \begin{gathered}
+  \boldsymbol\eta_i = \begin{pmatrix} (\psi_1, \tau_1, \phi_1, \gamma_1)^\intercal \\  \vdots \\ (\psi_n, \tau_n, \phi_n, \gamma_n)^\intercal \end{pmatrix}  \sim \mathcal{N}(\boldsymbol{\mu}(\theta), \mathbf{Q}^{-1}(\theta)) \\
+  (\psi_i, \tau_i, \phi_i, \gamma_i) = (\log \mu_i, \log \sigma_i - \log \mu_i, f(\xi_i),  \log \Delta_i)
+  \end{gathered}
+  $$
 
-  $\qquad(\psi_i, \tau_i, \phi_i, \gamma_i) = (\log \mu_i, \log \sigma_i - \log \mu_i, f(\xi_i),  \log \Delta_i)$ [@johannesson2021]
-  3) *Hyper-parameters:* $\theta =$ e.g. mean, range, variance, spatial correlation
+  3) *Hyper-parameters* $\theta =$ e.g. mean, range, variance, spatial correlation
 :::
 
 ## Max-and-Smooth {data-name="Max-and-Smooth"}
@@ -523,7 +534,7 @@ $$
 ::: {.column width="50%"}
 $$
 \begin{aligned}
-\log c(\mathbf u) &\propto \frac{1}{2}\left(\log |\mathbf{Q}| - \mathbf{z}^T\mathbf{Q}\mathbf{z} + \mathbf{z}^T\mathbf{z}\right) \\
+\log c(\mathbf u) &= \frac{1}{2}\left(\log |\mathbf{Q}| - \mathbf{z}^T\mathbf{Q}\mathbf{z} + \mathbf{z}^T\mathbf{z}\right) + \text{constant} \\
 \mathbf{z} &= \Phi^{-1}(\mathbf u)
 \end{aligned}
 $$
