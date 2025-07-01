@@ -74,7 +74,7 @@ library(evd)
   3) *Hyper-parameters* $\theta =$ e.g. mean, range, variance, spatial correlation
 :::
 
-## Max-and-Smooth {data-name="Max-and-Smooth"}
+## Max-and-Smooth [@hrafnkelssonMaxandSmoothTwostepApproach2020] {data-name="Max-and-Smooth"}
 
 ::: {.columns style="font-size:60%"}
 ### Two-Step Approach

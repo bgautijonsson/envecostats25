@@ -278,8 +278,8 @@ y_{i,t} \mid \mu_i, \sigma_i, \xi_i, \Delta_i, x_{i,t} \sim \text{GEV}(\mu_{i,t}
 </ul>
 </div>
 </section>
-<section id="max-and-smooth" class="slide level2" data-name="Max-and-Smooth">
-<h2>Max-and-Smooth</h2>
+<section id="max-and-smooth-hrafnkelssonmaxandsmoothtwostepapproach2020" class="slide level2" data-name="Max-and-Smooth">
+<h2>Max-and-Smooth <span class="citation" data-cites="hrafnkelssonMaxandSmoothTwostepApproach2020">[<a href="#/references" role="doc-biblioref" onclick="">3</a>]</span></h2>
 <div class="columns" style="font-size:60%">
 <h3 id="two-step-approach">Two-Step Approach</h3>
 <div class="column" style="width:50%;">
@@ -323,7 +323,7 @@ y_{i,t} \mid \mu_i, \sigma_i, \xi_i, \Delta_i, x_{i,t} \sim \text{GEV}(\mu_{i,t}
 <div class="column" style="width:50%;">
 <p><strong>Max Step (TMB)</strong></p>
 <ul>
-<li>Template Model Builder <span class="citation" data-cites="kristensen2016">[<a href="#/references" role="doc-biblioref" onclick="">3</a>]</span> for maximum likelihood</li>
+<li>Template Model Builder <span class="citation" data-cites="kristensen2016">[<a href="#/references" role="doc-biblioref" onclick="">4</a>]</span> for maximum likelihood</li>
 <li>Automatic differentiation</li>
 <li>Parallel processing of station-wise estimates</li>
 <li>Efficient sparse Hessians</li>
@@ -331,7 +331,7 @@ y_{i,t} \mid \mu_i, \sigma_i, \xi_i, \Delta_i, x_{i,t} \sim \text{GEV}(\mu_{i,t}
 </div><div class="column" style="width:50%;">
 <p><strong>Smooth Step (Stan)</strong></p>
 <ul>
-<li>Full Bayesian posterior via HMC <span class="citation" data-cites="carpenter2017">[<a href="#/references" role="doc-biblioref" onclick="">4</a>]</span></li>
+<li>Full Bayesian posterior via HMC <span class="citation" data-cites="carpenter2017">[<a href="#/references" role="doc-biblioref" onclick="">5</a>]</span></li>
 <li>BYM2 spatial prior implementation</li>
 <li>Scales well to large number of parameters</li>
 <li>Use <code>csr_times_vector()</code> for data-level likelihood</li>
@@ -482,10 +482,10 @@ u_i &amp;= F_{\mathrm{GEV}}(x_i \vert \mu_i, \sigma_i, \xi_i)
 <h3 id="gaussian-copula">Gaussian Copula</h3>
 <div class="column" style="width:50%;">
 <ul>
-<li>Matérn-like precision matrix <span class="math inline">\(\mathbf{Q}\)</span> <span class="citation" data-cites="lindgren2011">[<a href="#/references" role="doc-biblioref" onclick="">5</a>]</span></li>
+<li>Matérn-like precision matrix <span class="math inline">\(\mathbf{Q}\)</span> <span class="citation" data-cites="lindgren2011">[<a href="#/references" role="doc-biblioref" onclick="">6</a>]</span></li>
 <li>If <span class="math inline">\(\mathbf{Q} = \mathbf{I}\)</span> simplifies to independent margins</li>
 <li>Scaled so <span class="math inline">\(\boldsymbol{\Sigma} = \mathbf{Q}^{-1}\)</span> is correlation matrix</li>
-<li>Need to calculate marginal variances <span class="citation" data-cites="rue2005a rue2007 rue2009">[<a href="#/references" role="doc-biblioref" onclick="">6</a>–<a href="#/references" role="doc-biblioref" onclick="">8</a>]</span></li>
+<li>Need to calculate marginal variances <span class="citation" data-cites="rue2005a rue2007 rue2009">[<a href="#/references" role="doc-biblioref" onclick="">7</a>–<a href="#/references" role="doc-biblioref" onclick="">9</a>]</span></li>
 <li>How to generate, scale and compute with <span class="math inline">\(\mathbf{Q}\)</span> quickly (for MCMC)?</li>
 </ul>
 </div><div class="column" style="width:50%;">
@@ -564,7 +564,7 @@ u_i &amp;= F_{\mathrm{GEV}}(x_i \vert \mu_i, \sigma_i, \xi_i)
 <div class="column" style="width:50%;">
 <p><strong>Max Step (TMB)</strong></p>
 <ul>
-<li>Template Model Builder <span class="citation" data-cites="kristensen2016">[<a href="#/references" role="doc-biblioref" onclick="">3</a>]</span> for maximum likelihood</li>
+<li>Template Model Builder <span class="citation" data-cites="kristensen2016">[<a href="#/references" role="doc-biblioref" onclick="">4</a>]</span> for maximum likelihood</li>
 <li>Automatic differentiation</li>
 <li>Parallel processing of station-wise estimates</li>
 <li>Efficient sparse Hessians</li>
@@ -572,8 +572,8 @@ u_i &amp;= F_{\mathrm{GEV}}(x_i \vert \mu_i, \sigma_i, \xi_i)
 </div><div class="column" style="width:50%;">
 <p><strong>Smooth Step (Stan)</strong></p>
 <ul>
-<li>Full Bayesian posterior via HMC <span class="citation" data-cites="carpenter2017">[<a href="#/references" role="doc-biblioref" onclick="">4</a>]</span></li>
-<li>BYM2 spatial prior implementation <span class="citation" data-cites="riebler2016 simpson2015">[<a href="#/references" role="doc-biblioref" onclick="">9</a>–<a href="#/references" role="doc-biblioref" onclick="">10</a>]</span></li>
+<li>Full Bayesian posterior via HMC <span class="citation" data-cites="carpenter2017">[<a href="#/references" role="doc-biblioref" onclick="">5</a>]</span></li>
+<li>BYM2 spatial prior implementation <span class="citation" data-cites="riebler2016 simpson2015">[<a href="#/references" role="doc-biblioref" onclick="">10</a>–<a href="#/references" role="doc-biblioref" onclick="">11</a>]</span></li>
 <li>Scales well to large number of parameters</li>
 <li>Use <code>csr_times_vector()</code> for data-level likelihood</li>
 </ul>
@@ -667,29 +667,32 @@ u_i &amp;= F_{\mathrm{GEV}}(x_i \vert \mu_i, \sigma_i, \xi_i)
 <div id="ref-johannesson2021" class="csl-entry" role="listitem">
 <div class="csl-left-margin">2. </div><div class="csl-right-inline">Á. V. Johannesson, S. Siegert, R. Huser, H. Bakka, &amp; B. Hrafnkelsson, Approximate bayesian inference for analysis of spatio-temporal flood frequency data. (2021). https://doi.org/<a href="https://doi.org/10.48550/arXiv.1907.04763">10.48550/arXiv.1907.04763</a>.</div>
 </div>
+<div id="ref-hrafnkelssonMaxandSmoothTwostepApproach2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">B. Hrafnkelsson, S. Siegert, R. Huser, H. Bakka, &amp; Á. V. Jóhannesson, Max-and-<span>Smooth</span>: A two-step approach for approximate <span>Bayesian</span> inference in latent <span>Gaussian</span> models. (2020). https://doi.org/<a href="https://doi.org/10.48550/arXiv.1907.11969">10.48550/arXiv.1907.11969</a>.</div>
+</div>
 <div id="ref-kristensen2016" class="csl-entry" role="listitem">
-<div class="csl-left-margin">3. </div><div class="csl-right-inline">K. Kristensen, A. Nielsen, C. W. Berg, H. Skaug, &amp; B. M. Bell, <span>TMB</span>: <span>Automatic Differentiation</span> and <span>Laplace Approximation</span>. <em>Journal of Statistical Software</em>, <strong>70</strong> (2016) 1–21. https://doi.org/<a href="https://doi.org/10.18637/jss.v070.i05">10.18637/jss.v070.i05</a>.</div>
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">K. Kristensen, A. Nielsen, C. W. Berg, H. Skaug, &amp; B. M. Bell, <span>TMB</span>: <span>Automatic Differentiation</span> and <span>Laplace Approximation</span>. <em>Journal of Statistical Software</em>, <strong>70</strong> (2016) 1–21. https://doi.org/<a href="https://doi.org/10.18637/jss.v070.i05">10.18637/jss.v070.i05</a>.</div>
 </div>
 <div id="ref-carpenter2017" class="csl-entry" role="listitem">
-<div class="csl-left-margin">4. </div><div class="csl-right-inline">B. Carpenter, A. Gelman, M. D. Hoffman, D. Lee, B. Goodrich, M. Betancourt, M. A. Brubaker, J. Guo, P. Li, &amp; A. Riddell, Stan: <span>A Probabilistic Programming Language</span>. <em>Journal of statistical software</em>, <strong>76</strong> (2017) 1. https://doi.org/<a href="https://doi.org/10.18637/jss.v076.i01">10.18637/jss.v076.i01</a>.</div>
+<div class="csl-left-margin">5. </div><div class="csl-right-inline">B. Carpenter, A. Gelman, M. D. Hoffman, D. Lee, B. Goodrich, M. Betancourt, M. A. Brubaker, J. Guo, P. Li, &amp; A. Riddell, Stan: <span>A Probabilistic Programming Language</span>. <em>Journal of statistical software</em>, <strong>76</strong> (2017) 1. https://doi.org/<a href="https://doi.org/10.18637/jss.v076.i01">10.18637/jss.v076.i01</a>.</div>
 </div>
 <div id="ref-lindgren2011" class="csl-entry" role="listitem">
-<div class="csl-left-margin">5. </div><div class="csl-right-inline">F. Lindgren, H. Rue, &amp; J. Lindström, An explicit link between Gaussian fields and Gaussian Markov random fields: the stochastic partial differential equation approach. <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em>, <strong>73</strong> (2011) 423–498. https://doi.org/<a href="https://doi.org/10.1111/j.1467-9868.2011.00777.x">10.1111/j.1467-9868.2011.00777.x</a>.</div>
+<div class="csl-left-margin">6. </div><div class="csl-right-inline">F. Lindgren, H. Rue, &amp; J. Lindström, An explicit link between Gaussian fields and Gaussian Markov random fields: the stochastic partial differential equation approach. <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em>, <strong>73</strong> (2011) 423–498. https://doi.org/<a href="https://doi.org/10.1111/j.1467-9868.2011.00777.x">10.1111/j.1467-9868.2011.00777.x</a>.</div>
 </div>
 <div id="ref-rue2005a" class="csl-entry" role="listitem">
-<div class="csl-left-margin">6. </div><div class="csl-right-inline">H. Rue, Marginal variances for gaussian markov random fields. (2005).</div>
+<div class="csl-left-margin">7. </div><div class="csl-right-inline">H. Rue, Marginal variances for gaussian markov random fields. (2005).</div>
 </div>
 <div id="ref-rue2007" class="csl-entry" role="listitem">
-<div class="csl-left-margin">7. </div><div class="csl-right-inline">Hå. Rue &amp; S. Martino, Approximate bayesian inference for hierarchical gaussian markov random field models. <em>Journal of Statistical Planning and Inference</em>, <strong>137</strong> (2007) 3177–3192. https://doi.org/<a href="https://doi.org/10.1016/j.jspi.2006.07.016">10.1016/j.jspi.2006.07.016</a>.</div>
+<div class="csl-left-margin">8. </div><div class="csl-right-inline">Hå. Rue &amp; S. Martino, Approximate bayesian inference for hierarchical gaussian markov random field models. <em>Journal of Statistical Planning and Inference</em>, <strong>137</strong> (2007) 3177–3192. https://doi.org/<a href="https://doi.org/10.1016/j.jspi.2006.07.016">10.1016/j.jspi.2006.07.016</a>.</div>
 </div>
 <div id="ref-rue2009" class="csl-entry" role="listitem">
-<div class="csl-left-margin">8. </div><div class="csl-right-inline">H. Rue, S. Martino, &amp; N. Chopin, Approximate Bayesian inference for latent Gaussian models by using integrated nested Laplace approximations. <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em>, <strong>71</strong> (2009) 319–392. https://doi.org/<a href="https://doi.org/10.1111/j.1467-9868.2008.00700.x">10.1111/j.1467-9868.2008.00700.x</a>.</div>
+<div class="csl-left-margin">9. </div><div class="csl-right-inline">H. Rue, S. Martino, &amp; N. Chopin, Approximate Bayesian inference for latent Gaussian models by using integrated nested Laplace approximations. <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em>, <strong>71</strong> (2009) 319–392. https://doi.org/<a href="https://doi.org/10.1111/j.1467-9868.2008.00700.x">10.1111/j.1467-9868.2008.00700.x</a>.</div>
 </div>
 <div id="ref-riebler2016" class="csl-entry" role="listitem">
-<div class="csl-left-margin">9. </div><div class="csl-right-inline">A. Riebler, S. H. Sørbye, D. Simpson, &amp; H. Rue, <a href="https://journals.sagepub.com/doi/full/10.1177/0962280216660421">An intuitive bayesian spatial model for disease mapping that accounts for scaling</a>. (2016).</div>
+<div class="csl-left-margin">10. </div><div class="csl-right-inline">A. Riebler, S. H. Sørbye, D. Simpson, &amp; H. Rue, <a href="https://journals.sagepub.com/doi/full/10.1177/0962280216660421">An intuitive bayesian spatial model for disease mapping that accounts for scaling</a>. (2016).</div>
 </div>
 <div id="ref-simpson2015" class="csl-entry" role="listitem">
-<div class="csl-left-margin">10. </div><div class="csl-right-inline">D. P. Simpson, H. Rue, T. G. Martins, A. Riebler, &amp; S. H. Sørbye, <a href="http://arxiv.org/abs/1403.4630">Penalising model component complexity: A principled, practical approach to constructing priors</a>. (2015).</div>
+<div class="csl-left-margin">11. </div><div class="csl-right-inline">D. P. Simpson, H. Rue, T. G. Martins, A. Riebler, &amp; S. H. Sørbye, <a href="http://arxiv.org/abs/1403.4630">Penalising model component complexity: A principled, practical approach to constructing priors</a>. (2015).</div>
 </div>
 </div>
 
